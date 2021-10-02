@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background: rgb(245, 245, 245);
+}
+#footer {
+    background: #212529;
+    color: #fff;
+    height: 60px;
+    text-align: center;
+    padding-top: 13px;
+    position: relative;
+    top: 500px;
+
+
+}
+span#spanforlogin a {
+    color: #222;
+    text-decoration: none;
+    position: relative;
+    left: 285px;
+    top: 7px;
+}
+span#spanforSingup a {
+    color: #222;
+    position: relative;
+    text-decoration: none;
+    left: 256px;
+    top: 8px;
+}
+span.iconInprofile{
+    height: 39px;
+    width: 41px;
+    border-radius: 0px;
+}
+a{
+    color: #212529;
+    text-decoration: none;
+}
+.mydiv3-5 {
+    position: relative;
+    left: -185px;
+    top: 29px;
+}
+span.bookmark {
+    position: absolute;
+    left: 596px;
+}
+i{
+    font-size: 25px;
+}
+span.bkSpage {
+    position: relative;
+    left: 308px;
+}
+#dashboardPosts {
+    margin: 0px 61px;
+}
+h5#dashboardPostTitle {
+    position: relative;
+    left: -16px;
+    top: 9px;
+}
+div#ppUpDiv {
+    background: #ebebeb;
+    width: 102%;
+    min-height: 305px;
+    margin: -14px;
+}
+img#authorProPic {
+    position: absolute;
+    left: 34%;
+    top: 3%;
+}
+strong#authorName {
+    position: relative;
+    top: 18.5%;
+    left: 662px;
+    /* text-align: center; */
+    font-size: 30px;
+}
+h2.authortext {
+    padding-top: 200px;
+    position: relative;
+    left: 2%;
+    top: 3%;
+}

@@ -1,0 +1,36 @@
+<%- include('../../partials/header.ejs') %> 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col md-2 ms-3">
+            <%- include('../../partials/sidebar.ejs') %>
+        </div>
+        <div class="col-md-10 mt-4">
+            <div class="row">
+                <div class="card card-body mx-5">
+                    <div class="row">
+                        <h2 class="display-6 text-center text-muted">Bookmarks</h2>
+                        <% if (profile.bookmarks.length === 0) { %>
+                            <h4 class=" mt-4 text-muted text-center">No bookmarks available</h4>
+                        <% } else { %>
+                            <% for (const bookmark of profile.bookmarks) { %>
+                                <div id="dashboardPosts" class="card mt-5 col-sm-3 mb-5 p-4 ms-5">
+                                    <div class="d-flex">
+                                        <% if (bookmark.thumbnail) { %>
+                                            <img class="img-fluid mb-2" src="<%= bookmark.thumbnail %> " alt="Thumbnail" >
+                                        <% } %>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="/explorer/<%= bookmark._id %> "><h5 id="dashboardPostTitle"><%= bookmark.title %> </h5></a>
+                                    </div>
+                                </div>
+                            <% } %> 
+                        <% } %>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<%- include('../../partials/footer.ejs') %> 
+</body>
+</html>

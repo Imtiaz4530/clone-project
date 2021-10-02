@@ -1,0 +1,98 @@
+<%- include('../../partials/header.ejs') %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"> 
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-md-8 offset-md-3 ">  
+            <div class="card card-body m-5">
+                <h3 class="mb-3">Create your profile</h3>
+                <div class="profile-pics">
+                  <img width="170px" src="<%= user.profilePics %> " alt="Profile Picture" id="profilePics"  class="img-thumbnail img-fluid">
+                <form action="/uploads/proPic" class="my-2" id="profilePicform">
+                  <input type="file" class="my-2" name="profilePics" id="profilePicsFile" accept="image/*">
+                  <input type="button" value="Remove pics" style="display:<%= user.profilePics.includes('R.png')? 'none':'block'%>" class="btn btn-danger btn-sm my-2" id="removeProfilePics">
+                </form>
+                </div>
+
+                <form action="/profile/create" method="post">
+                  <div class="form-group mt-2 mb-2">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" id="name" class="form-control <%= error.name ? 'is-invalid' : '' %> " value="<%= value.name ? value.name : '' %>" placeholder="Enter your name" >
+                    <div class="invalid-feedback">
+                        <%= error.name && error.name %> 
+                    </div>
+                  </div>
+                  <div class="form-group mb-2">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" value="<%= user.email %>" disabled >
+                  </div>
+                  <div class="form-group mb-2">
+                    <label for="bio" class="form-label">Bio</label>
+                    <textarea type="text" name="bio" id="bio" class="form-control <%= error.bio ? 'is-invalid' : '' %> " value="<%= value.bio ? value.bio : '' %>" placeholder="Enter your bio"></textarea>
+                    <div class="invalid-feedback">
+                        <%= error.bio && error.bio %> 
+                    </div>
+                  </div>
+                  <div>
+                    <p class="lead">Social Links</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text iconInprofile">
+                                <i class="fab fa-internet-explorer"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control <%= error.website ? 'is-invalid' : ''%>" placeholder="Website Links" name="website">
+                        <div class="invalid-feedback">
+                            <%= error.website%>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text iconInprofile">
+                                <i class="fab fa-facebook-square"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control <%= error.facebook ? 'is-invalid' : '' %>" placeholder="Facebook Links" name="facebook">
+                        <div class="invalid-feedback">
+                            <%= error.facebook%>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text iconInprofile">
+                                <i class="fab fa-github-square"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control <%= error.github ? 'is-invalid' : ''%>" placeholder="Github Links" name="github">
+                        <div class="invalid-feedback">
+                            <%= error.github%>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-dark" value="Create profile">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="crop-modal" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Resize your image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div id="cropped-image"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cencel-crooping">Cencel</button>
+          <button type="button" class="btn btn-primary" id="upload-image">Update</button>
+        </div>
+      </div>
+  </div>
+  </div>
+<%- include('../../partials/footer.ejs') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script> 
+<script src="/script/profilePicUpload.js"></script>
+</body>
+</html>

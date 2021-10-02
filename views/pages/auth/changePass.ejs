@@ -1,0 +1,33 @@
+<%- include('../../partials/header.ejs') %> 
+<div class="container-fluid my-3">
+    <div class="row">
+            <div class="col-md-2 ms-3">
+                <%- include('../../partials/sidebar.ejs') %>
+            </div>    
+        <div class="col-md-6 mt-3 ms-5"> 
+            <div class="row"> 
+                <div class="card card-body mt-2">
+                    <div class="row">
+                        <h3 class="display-6 text-muted">Change Password</h3>
+                        <form action="/auth/changepass" method="POST">
+                            <div class="mb-3">
+                              <label for="oldPass" class="form-label">Enter your old password</label>
+                              <input type="password" name="oldPass" value="<%= value.oldPass ? value.oldPass :''%>" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                              <label for="newPass" class="form-label">Enter your new password</label>
+                              <input type="password" name="newPass" value="<%=value.newPass?value.newPass:''%>" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmpass" class="form-label">Confirm your password</label>
+                                <input type="password" name="confirmpass" value="<%= value.confirmpass ? value.confirmpass :''%>" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-dark mt-2">Update Password</button>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+  <%- include('../../partials/footer.ejs') %> 

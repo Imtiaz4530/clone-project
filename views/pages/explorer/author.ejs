@@ -1,0 +1,65 @@
+<%- include('../../partials/header.ejs') %> 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col md-2 ms-3">
+            <%- include('../../partials/sidebar.ejs') %>
+        </div>
+        <div class="col-md-10 mt-4">
+            <div class="row">
+                <div class="card card-body mx-5">
+                    <div class="row">
+                        <div>
+                            <div id="ppUpDiv"></div>
+                            <img id="authorProPic" class="aling-self-start rounded-circle" src="<%= author.profilePics %> " alt="Profile-Pic" width="28%">
+                        </div>
+                        <strong id="authorName"><%= profile.name %> </strong>
+                        <span id="authorBio" class="my-1"><%=profile.bio %></span><br>
+                        <div  class="my-3">
+                           <span id="authorSocialinks">Social Links :</span>
+                           <% if (profile.links.website) { %> 
+                               <span>
+                                   <a href="<%= profile.links.website %>" target="_blank"><i class="fab fa-internet-explorer"></i></a>
+                               </span>
+                           <% } %>
+                           <% if (profile.links.facebook) { %> 
+                               <span>
+                                   <a href="<%= profile.links.facebook %>" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                               </span>
+                           <% } %>  
+                           <% if (profile.links.twitter) { %> 
+                               <span>
+                                   <a href="<%= profile.links.twitter %>" target="_blank"> <i class="fab fa-twitter-square"></i></a>
+                               </span>
+                           <% } %> 
+                           <% if (profile.links.github) { %> 
+                               <span>
+                                   <a href="<%= profile.links.github %>" target="_blank"><i class="fab fa-github-square"></i></a>
+                               </span>
+                           <% } %> 
+                        </div>
+                        <h2 class="authortext display-6 text-muted">Posts:</h2>
+                        <% if (posts.length === 0) { %>
+                            <h4 class="authortext mt-4 text-muted mt-5">No post available</h4>
+                        <% } else { %>
+                            <% for (const post of posts) { %>
+                                <div id="dashboardPosts" class="card mt-5 col-sm-3 mb-5 p-4 ms-5">
+                                    <div class="d-flex">
+                                        <% if (post.thumbnail) { %>
+                                            <img class="img-fluid mb-2" src="<%= post.thumbnail %> " alt="Thumbnail" >
+                                        <% } %>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="/explorer/<%= post._id %> "><h5 id="dashboardPostTitle"><%= post.title %> a</h5></a>
+                                    </div>
+                                </div>
+                            <% } %> 
+                        <% } %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<%- include('../../partials/footer.ejs') %> 
+</body>
+</html>
